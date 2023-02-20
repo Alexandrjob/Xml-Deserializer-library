@@ -1,0 +1,5 @@
+.idea
+.git
+src/XmlDeserializer/obj
+src/XmlDeserializer/bin
+src/TestProject1XmlDeserializer

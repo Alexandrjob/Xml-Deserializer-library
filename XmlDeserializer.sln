@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlDeserializer", "src/XmlDeserializer\XmlDeserializer.csproj", "{8D0FDAD1-6C94-4C18-B2A4-A6802B566ACA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1XmlDeserializer", "src/TestProject1XmlDeserializer\TestProject1XmlDeserializer.csproj", "{B81C1DAD-56DE-442C-8FA7-23A345DBFA64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F77059B4-D207-4A56-BB9C-F8380E0F0196}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D0FDAD1-6C94-4C18-B2A4-A6802B566ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0FDAD1-6C94-4C18-B2A4-A6802B566ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0FDAD1-6C94-4C18-B2A4-A6802B566ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0FDAD1-6C94-4C18-B2A4-A6802B566ACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B81C1DAD-56DE-442C-8FA7-23A345DBFA64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81C1DAD-56DE-442C-8FA7-23A345DBFA64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B81C1DAD-56DE-442C-8FA7-23A345DBFA64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81C1DAD-56DE-442C-8FA7-23A345DBFA64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B81C1DAD-56DE-442C-8FA7-23A345DBFA64} = {F77059B4-D207-4A56-BB9C-F8380E0F0196}
+		{8D0FDAD1-6C94-4C18-B2A4-A6802B566ACA} = {F77059B4-D207-4A56-BB9C-F8380E0F0196}
+	EndGlobalSection
+EndGlobal
