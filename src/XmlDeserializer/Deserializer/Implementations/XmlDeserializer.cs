@@ -25,19 +25,17 @@ public class XmlDeserializer
         {
             var step = new Step
             {
-                Text = stepElement.Element("Text").Value,
                 Variants = new List<Variant>()
             };
+            SetProperties(stepElement, step);
 
             if (stepElement.Element("Variants") is XElement variantsElement)
             {
                 foreach (var variantElement in variantsElement.Elements("Variant"))
                 {
-                    var variant = new Variant
-                    {
-                        Text = variantElement.Element("Text").Value
-                    };
-
+                    var variant = new Variant();
+                    SetProperties(stepElement, variant);
+                    
                     var linkTegElement = variantElement.Element("LinkTeg");
                     if (linkTegElement != null)
                     {
@@ -53,5 +51,20 @@ public class XmlDeserializer
         }
 
         return tagSteps;
+    }
+
+    private void SetProperties(XElement element, BaseEnity enity)
+    {
+        var questionElement = element.Element("Question");
+        if (questionElement != null)
+        {
+            enity.Question = questionElement.Value;
+        }
+
+        var answerElement = element.Element("Answer");
+        if (answerElement != null)
+        {
+            enity.Answer = answerElement.Value;
+        }
     }
 }

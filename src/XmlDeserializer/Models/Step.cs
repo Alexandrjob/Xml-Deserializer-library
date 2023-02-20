@@ -1,7 +1,6 @@
 ﻿namespace XmlDeserializer.Models;
 
-public class Step
+public class Step:BaseEnity
 {
-    public string Text { get; set; }
     public List<Variant> Variants { get; set; }
 }
