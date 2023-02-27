@@ -4,11 +4,11 @@ using XmlDeserializer.Models;
 
 namespace XmlDeserializer.Deserializer.Implementations;
 
-public class XmlDeserializer
+public class Deserializer
 {
     private ReadOnlyStream _readOnlyStream { get; }
 
-    public XmlDeserializer(string fileFullPath)
+    public Deserializer(string fileFullPath)
     {
         _readOnlyStream = new ReadOnlyStream(fileFullPath);
     }
@@ -34,7 +34,7 @@ public class XmlDeserializer
                 foreach (var variantElement in variantsElement.Elements("Variant"))
                 {
                     var variant = new Variant();
-                    SetProperties(stepElement, variant);
+                    SetProperties(variantElement, variant);
                     
                     var linkTegElement = variantElement.Element("LinkTeg");
                     if (linkTegElement != null)
