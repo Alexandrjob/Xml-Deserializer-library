@@ -1,6 +1,11 @@
 ﻿namespace XmlDeserializer.Models;
 
-public class Variant : BaseEnity
+public class Variant : BaseEnity, IVariant
 {
-    public string? LinkTeg { get; set; }
+    public string? LinkTag { get; set; }
+}
+
+public interface IVariant: IBaseEnity
+{
+    public string? LinkTag { get; set; }
 }

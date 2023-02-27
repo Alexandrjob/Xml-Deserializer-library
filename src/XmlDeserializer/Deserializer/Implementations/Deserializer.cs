@@ -13,19 +13,19 @@ public class Deserializer
         _readOnlyStream = new ReadOnlyStream(fileFullPath);
     }
 
-    public Dictionary<string, Step> GetAllSteps()
+    public Dictionary<string, IStep> GetAllSteps()
     {
         var xmlString = _readOnlyStream.ReadToEnd();
 
-        var tagSteps = new Dictionary<string, Step>();
+        var tagSteps = new Dictionary<string, IStep>();
 
         var root = XElement.Parse(xmlString);
 
         foreach (var stepElement in root.Elements("Step"))
         {
-            var step = new Step
+            IStep step = new Step
             {
-                Variants = new List<Variant>()
+                Variants = new List<IVariant>()
             };
             SetProperties(stepElement, step);
 
@@ -33,13 +33,13 @@ public class Deserializer
             {
                 foreach (var variantElement in variantsElement.Elements("Variant"))
                 {
-                    var variant = new Variant();
+                    IVariant variant = new Variant();
                     SetProperties(variantElement, variant);
                     
-                    var linkTegElement = variantElement.Element("LinkTeg");
-                    if (linkTegElement != null)
+                    var linkTagElement = variantElement.Element(nameof(variant.LinkTag));
+                    if (linkTagElement != null)
                     {
-                        variant.LinkTeg = linkTegElement.Value;
+                        variant.LinkTag = linkTagElement.Value;
                     }
 
                     step.Variants.Add(variant);
@@ -53,7 +53,7 @@ public class Deserializer
         return tagSteps;
     }
 
-    private void SetProperties(XElement element, BaseEnity enity)
+    private void SetProperties(XElement element, IBaseEnity enity)
     {
         var questionElement = element.Element("Question");
         if (questionElement != null)
