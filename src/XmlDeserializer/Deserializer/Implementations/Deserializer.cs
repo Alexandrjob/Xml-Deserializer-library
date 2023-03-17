@@ -4,7 +4,7 @@ using XmlDeserializer.Models;
 
 namespace XmlDeserializer.Deserializer.Implementations;
 
-public class Deserializer
+public class Deserializer : IDisposable
 {
     private ReadOnlyStream _readOnlyStream { get; }
 
@@ -35,7 +35,7 @@ public class Deserializer
                 {
                     IVariant variant = new Variant();
                     SetProperties(variantElement, variant);
-                    
+
                     var linkTagElement = variantElement.Element(nameof(variant.LinkTag));
                     if (linkTagElement != null)
                     {
@@ -66,5 +66,10 @@ public class Deserializer
         {
             enity.Answer = answerElement.Value;
         }
+    }
+    
+    public void Dispose()
+    {
+        _readOnlyStream.Close();
     }
 }
